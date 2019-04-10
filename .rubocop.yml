@@ -1,0 +1,24 @@
+Rails:
+  Enabled: true
+
+Rails/HasAndBelongsToMany:
+  Enabled: false
+
+AllCops:
+  TargetRubyVersion: 2.6.2
+  Exclude:
+    - 'tmp/**/*'
+    - 'vendor/bundle/**/*'
+
+GlobalVars:
+  AllowedVariables:
+    - $puma_worker
+
+Metrics/MethodLength:
+  Exclude:
+    - 'db/migrate/*'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'db/migrate/*'
+    - 'spec/**/*'

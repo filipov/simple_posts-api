@@ -1,0 +1,6 @@
+--protected
+--private
+--plugin rspec
+--list-undoc
+-
+.ruby-version

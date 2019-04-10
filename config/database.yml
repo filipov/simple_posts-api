@@ -64,7 +64,8 @@ test:
 # ever seen by anyone, they now have access to your database.
 #
 # Instead, provide the password as a unix environment variable when you boot
-# the app. Read http://guides.rubyonrails.org/configuring.html#configuring-a-database
+# the app. Read
+# http://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full rundown on how to provide these environment variables in a
 # production deployment.
 #
@@ -80,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: simple_posts_api_production
-  username: simple_posts_api
-  password: <%= ENV['SIMPLE_POSTS_API_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
