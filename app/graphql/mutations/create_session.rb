@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module Mutations
+  # The class implements mutation of creating session
   class CreateSession < GraphQL::Schema::RelayClassicMutation
     field :token, String,
           null: true,
@@ -21,11 +22,9 @@ module Mutations
     def resolve(login:, password:)
       result = CreateSessionInteractor.call(login: login, password: password)
 
-      if result.success?
-        { token: result.token }
-      else
-        { error: result.message }
-      end
+      return { token: result.token } if result.success?
+
+      { error: result.message }
     end
   end
 end
