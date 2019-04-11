@@ -6,7 +6,7 @@ class GraphqlController < ApplicationController
   #
   # The method for execution GraphQL Scheme
   def execute
-    result = AuthenticationUserModuleSchema.execute(
+    result = SimplePostsApiSchema.execute(
       query,
       variables: variables,
       context: context,
