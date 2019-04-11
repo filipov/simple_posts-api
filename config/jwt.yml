@@ -1,0 +1,24 @@
+# Algorithm
+#  HS256 - HMAC using SHA-256 hash algorithm
+#  HS384 - HMAC using SHA-384 hash algorithm
+#  HS512 - HMAC using SHA-512 hash algorithm
+#
+# ExpirationTime in seconds
+development:
+  access_token:
+    expiration_time: 60 * 60
+    secret: 'my$ecretK3y'
+    algorithm: 'HS256'
+
+test:
+  access_token:
+    expiration_time: 2
+    secret: 'my$ecretK3y'
+    algorithm: 'HS256'
+  refresh_token:
+
+production:
+  access_token:
+    expiration_time: <%= ENV.fetch('ACCESS_TOKEN_EXPIRATION_TIME') { 2 * 60 * 60 } %>
+    secret: <%= ENV['ACCESS_TOKEN_SECRET'] %>
+    algorithm: <%= ENV.fetch('ACCESS_TOKEN_ALGORITHM') { 'HS512' } %>

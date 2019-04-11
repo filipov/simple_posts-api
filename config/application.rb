@@ -7,7 +7,7 @@ require 'rails'
 require 'active_model/railtie'
 require 'active_job/railtie'
 require 'active_record/railtie'
-require 'active_storage/engine'
+# require 'active_storage/engine'
 require 'action_controller/railtie'
 # require 'action_mailer/railtie'
 # require 'action_view/railtie'
@@ -18,6 +18,8 @@ require 'action_controller/railtie'
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
+
+require './config/config'
 
 module SimplePostsApi
   # Application class CAP =)
@@ -35,5 +37,11 @@ module SimplePostsApi
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    # Controls the format for dumping the database schema to a file. The options
+    # are :ruby (the default) for a database-independent version that depends on
+    # migrations, or :sql for a set of (potentially database-dependent) SQL
+    # statements
+    config.active_record.schema_format = :sql
   end
 end

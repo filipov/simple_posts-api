@@ -25,3 +25,7 @@
 # User`s private settings
 .idea/
 .DS_Store
+
+.yardoc/
+doc/
+coverage/
